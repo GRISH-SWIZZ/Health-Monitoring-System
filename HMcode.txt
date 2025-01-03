@@ -1,0 +1,40 @@
+#include <stdio.h>
+    if (vs->heartRate < 60 || vs->heartRate > 100) {
+        snprintf(vs->heartRateStatus, sizeof(vs->heartRateStatus), "Abnormal");
+    } else {
+        snprintf(vs->heartRateStatus, sizeof(vs->heartRateStatus), "Normal");
+    }
+
+    // BP Status
+    if (vs->systolicBP < 90|| vs->systolicBP > 120|| vs->diastolicBP < 60 || vs->diastolicBP > 80) {
+        snprintf(vs->bpStatus, sizeof(vs->bpStatus), "Abnormal");
+    } else {
+        snprintf(vs->bpStatus, sizeof(vs->bpStatus), "Normal");
+    }
+
+    // Temperature Status
+    if (vs->temperature < 97 || vs->temperature > 99) {
+        snprintf(vs->tempStatus, sizeof(vs->tempStatus), "Abnormal");
+    } else {
+        snprintf(vs->tempStatus, sizeof(vs->tempStatus), "Normal");
+    }
+
+    // SpO2 Status
+    if (vs->spo2 < 95) {
+        snprintf(vs->spo2Status, sizeof(vs->spo2Status), "Abnormal");
+    } else {
+        snprintf(vs->spo2Status, sizeof(vs->spo2Status), "Normal");
+    }
+}
+
+// Function to display the status of each vital sign
+void displayStatus(const VitalSigns *vs) {
+    printf("\nHealth Monitoring System Report\n");
+    printf("================================\n");
+    printf("Heart Rate: %d bpm - %s\n", vs->heartRate, vs->heartRateStatus);
+    printf("Blood Pressure: %d/%d mmHg - %s\n", vs->systolicBP, vs->diastolicBP, vs->bpStatus);
+    printf("Temperature: %.1f C - %s\n", vs->temperature, vs->tempStatus);
+    printf("SpO2: %d%% - %s\n", vs->spo2, vs->spo2Status);
+    printf("HAVE A GREAT HEALTH AHEAD!!!\n");
+
+}
